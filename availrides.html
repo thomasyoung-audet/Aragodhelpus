@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+ <head>
+ 	<meta charset="utf-8">
+    <title>rider</title>
+    
+ </head>
+
+ <body>
+	<style>
+		ul {
+		  list-style-type: none;
+		  width: 75%;
+		  margin: 0;
+		  padding: 0;
+		  position: fixed;
+		  overflow: hidden;
+		  
+		  background-color: #956f95;
+		  transition: top 0.3s;
+		  top: 50%;
+		  
+
+		}
+		
+		li {
+		  float: left;
+		}
+		
+		li a {
+		  display: block;
+		  color: #22223B;
+		  text-align: center;
+		  padding: 16px 18px; 
+		  text-decoration: none;
+		   
+		}
+		
+		li a:hover:not(.active) {
+		  background-color: #333;
+		}
+		
+		.active {
+		  background-color: #956f95;
+		}
+
+		body, html {
+	
+			height: 100%;
+			margin: 0;
+			font-family: "Helvetica Neue", Helvetica, sans-serif;
+		}
+
+		.bgimg-1 { 
+			/* The image used */
+			background-image: url("highway1.jpg");
+
+			/* Full height */
+			height: 100%; 
+
+			/* Center and scale the image nicely */
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+
+			text-align: center;
+			top: 50%;
+		}
+
+		.rides {
+			position: absolute;
+			
+			
+			margin: 100px 100px 100px 150px;
+			background:  #9A8C98;
+			padding: 1%;
+		}
+
+		.Back a {
+			position: absolute;
+			width: 30px;
+			height: 20px;
+			top: 5%;
+			left: 46.7%;
+			color: lightpink;
+			font-weight: bold;
+		}
+
+		.button {
+			position: absolute;
+			width: 30px;
+			height: 20px;
+			top: 5%;
+			left: 46.7%;
+			color: lightpink;
+			font-weight: bold;
+		}
+
+	</style>
+	<script>
+			var elements = document.getElementsByClassName("access");
+			var nav = document.getElementsByClassName("toolbar");
+			var prevScrollpos = window.pageYOffset;
+			var key = 0;
+			
+			for(var i = 0; i < elements.length; i++){
+			  elements[i].onclick = function(){
+				for(var i = 0; i < elements.length; i++){
+					elements[i].classList.remove("active");
+				}
+				this.classList.add("active");
+				console.log(this.hash);
+				if(this.hash=="#home"){
+				  key = 1;
+				  window.scrollTo(0,0);
+				}
+				else if(this.hash=="#news"){
+				  key = 1;
+				  window.scrollTo(0,740);
+				}
+				else if(this.hash=="#contact"){
+				  key = 1;
+				  window.scrollTo(0,1525);
+				}
+				else if(this.hash=="#about"){
+				  key = 1;
+				  window.scrollTo(0,2310);
+				}
+			  }
+			}
+			
+			window.onscroll = function() {
+			var currentScrollPos = window.pageYOffset;
+			  if (key == 1){
+				key = 0;
+			  }
+			  else if (prevScrollpos > currentScrollPos) {
+				nav[0].style.top = "10px";
+			  } 
+			  else {
+				nav[0].style.top = "-50px";
+				for(var i = 0; i < elements.length; i++){
+					elements[i].classList.remove("active");
+				}
+			  }
+			  prevScrollpos = currentScrollPos;
+			}
+		</script>
+
+	<div class="bgimg-1">
+		
+			<div class="news-feed-container">
+					<ul class="rides" style="top: 0px;">
+					
+						<li>
+						<!--<a href="">-->
+							<input id="clickMe" type="button" value="" onclick="doFunction();" />
+							<span class="price">
+								<h2>5$</h2>					
+							</span> 
+							
+	
+							<div class="calendar event_date"> 
+								<span class="month">Feb</span> 
+								<span class="day">05</span> 
+							</div> 
+												
+							<h3>
+								<span class="city-name"> 
+									<strong>London</strong> 
+								</span> 
+								
+								<span>&#8594</span>
+								
+								<span class="city-name">
+									<strong>Strathroy</strong>
+								</span>
+								<!-- <span class="date-txt">tuesday february 5</span> -->
+								<br>
+								<!--  <span class="driver-car"></span> <span class="driver-name">Len</span>-->
+							</h3>
+						</a>	
+					</li>
+					</ul>
+				</div>
+
+		<div class="Back">
+				<li><a href="lynkup.html">back</a></li>
+		</div>
+
+
+	</div>
+
+ </body>
+</html>
